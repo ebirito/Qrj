@@ -3,7 +3,7 @@
 
 <asp:Content ContentPlaceHolderID="MainContent" runat="server">
     <hgroup class="title">
-        <h1><%: Title %>.</h1>
+        <h1>My info.</h1>
     </hgroup>
 
     <section id="passwordForm">
@@ -61,15 +61,23 @@
                                 <asp:Label runat="server" ID="CurrentPasswordLabel" AssociatedControlID="CurrentPassword">Current password</asp:Label>
                                 <asp:TextBox runat="server" ID="CurrentPassword" CssClass="passwordEntry" TextMode="Password" />
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="CurrentPassword"
-                                    CssClass="field-validation-error" ErrorMessage="The current password field is required."
+                                    CssClass="field-validation-error" ErrorMessage="Current password is required."
                                     ValidationGroup="ChangePassword" />
                             </li>
                             <li>
                                 <asp:Label runat="server" ID="NewPasswordLabel" AssociatedControlID="NewPassword">New password</asp:Label>
                                 <asp:TextBox runat="server" ID="NewPassword" CssClass="passwordEntry" TextMode="Password" />
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="NewPassword"
-                                    CssClass="field-validation-error" ErrorMessage="The new password is required."
+                                    CssClass="field-validation-error" Display="Dynamic" ErrorMessage="New password is required."
                                     ValidationGroup="ChangePassword" />
+                                <asp:RegularExpressionValidator runat="server" 
+                                    ValidationExpression="[A-Za-z].*[0-9]|[0-9].*[A-Za-z]" ControlToValidate="NewPassword" 
+                                    CssClass="field-validation-error" Display="Dynamic" 
+                                    ErrorMessage="Password must contain both letters and numbers."></asp:RegularExpressionValidator>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="NewPassword"
+                                   ValidationExpression=".{8}.*"
+                                   CssClass="field-validation-error" Display="Dynamic" 
+                                   ErrorMessage="Password must be at least 8 characters."></asp:RegularExpressionValidator>
                             </li>
                             <li>
                                 <asp:Label runat="server" ID="ConfirmNewPasswordLabel" AssociatedControlID="ConfirmNewPassword">Confirm new password</asp:Label>
@@ -88,7 +96,7 @@
             </asp:ChangePassword>
         </asp:PlaceHolder>
     </section>
-
+    <!--
     <section id="externalLoginsForm">
         
         <asp:ListView runat="server"
@@ -123,4 +131,5 @@
         <h3>Add an external login</h3>
         <uc:OpenAuthProviders runat="server" ReturnUrl="~/Account/Manage" />
     </section>
+    -->
 </asp:Content>
