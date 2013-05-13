@@ -5,7 +5,7 @@
     <hgroup class="title">
         <h1><%: Request.QueryString["Role"] %> <%: Title %>.</h1>
     </hgroup>
-    <asp:Login runat="server" ViewStateMode="Disabled" RenderOuterTable="false">
+    <asp:Login runat="server" ID="LoginForm" ViewStateMode="Disabled" RenderOuterTable="false" OnLoggedIn="OnLoggedIn">
         <LayoutTemplate>
             <p class="validation-summary-errors">
                 <asp:Literal runat="server" ID="FailureText" />
@@ -36,7 +36,7 @@
             </fieldset>
         </LayoutTemplate>
     </asp:Login>
-    <p>
+    <p ID="lnkRegister" runat="server">
         <asp:HyperLink runat="server" ID="RegisterHyperLink" ViewStateMode="Disabled">Register</asp:HyperLink>
         if you don't have an account.
     </p>

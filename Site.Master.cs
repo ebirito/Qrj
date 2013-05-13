@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Profile;
 
 namespace QRJ
 {
@@ -13,6 +14,7 @@ namespace QRJ
         private const string AntiXsrfTokenKey = "__AntiXsrfToken";
         private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
         private string _antiXsrfTokenValue;
+        protected string HomeUrl = "~/";
 
         protected void Page_Init(object sender, EventArgs e)
         {
@@ -67,7 +69,13 @@ namespace QRJ
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Request.IsAuthenticated)
+            {
+                Label lbl = (Label)LoginView.FindControl("lblFirstNameLastName");
+                ProfileBase p = (ProfileBase)ProfileBase.Create(Context.User.Identity.Name, true);
+                lbl.Text = !string.IsNullOrEmpty(p.GetPropertyValue("FirstName").ToString()) ? string.Format("{0} {1}", p.GetPropertyValue("FirstName"), p.GetPropertyValue("LastName"))
+                    : "Administrator";
+            }
         }
     }
 }
