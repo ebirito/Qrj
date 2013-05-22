@@ -9,7 +9,7 @@
         <asp:TextBox ID="Number" runat="server" style="display:inline" Width="50px"></asp:TextBox>
         <asp:RequiredFieldValidator runat="server" ControlToValidate="Number"
                                 CssClass="field-validation-error" Display="Dynamic" ErrorMessage="Number is required." />
-        <asp:RangeValidator runat="server" ControlToValidate="Number" CssClass="field-validation-error" Display="Dynamic" MinimumValue="1" MaximumValue="100" ErrorMessage="Number must be between 1 and 100" />
+        <asp:RangeValidator runat="server" ControlToValidate="Number" CssClass="field-validation-error" Display="Dynamic" Type="Integer" MinimumValue="1" MaximumValue="100" ErrorMessage="Number must be between 1 and 100" />
     </div>
     <asp:Button ID="btnSubmit" Text="Generate" runat="server" OnClick="btnSubmit_Click" />
 </asp:Content>
