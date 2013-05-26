@@ -7,11 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QRJ
-{
-
-    public partial class View
-    {
-
+namespace QRJ {
+    
+    
+    public partial class View {
+        
+        /// <summary>
+        /// homePage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor homePage;
+        
+        /// <summary>
+        /// activationCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl activationCode;
     }
 }

@@ -3,4 +3,10 @@
   <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\v11.0;Initial Catalog=aspnet-QRJ-20130505214304;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|\aspnet-QRJ-20130505214304.mdf" tags="SqlConnectionString">
     <parameterEntry kind="XmlFile" scope="C:\\QRJ\\QRJ\\QRJ\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
   </parameter>
+  <parameter name="QRJ-Web.config Connection String" description="QRJ Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\QRJ.mdf;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\QRJ\\QRJ\\QRJ\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='QRJ']/@connectionString" />
+  </parameter>
+  <parameter name="QRJ_DatabasePublish-Web.config Connection String" description="QRJ_DatabasePublish Connection String used in web.config by the application to access the database." defaultValue="QRJ_DatabasePublish.ConnetionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\QRJ\\QRJ\\QRJ\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='QRJ_DatabasePublish']/@connectionString" />
+  </parameter>
 </parameters>

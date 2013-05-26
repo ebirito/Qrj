@@ -31,3 +31,5 @@ C:\QRJ\QRJ\QRJ\bin\Microsoft.AspNet.FriendlyUrls.xml
 C:\QRJ\QRJ\QRJ\obj\Debug\QRJ.csprojResolveAssemblyReference.cache
 C:\QRJ\QRJ\QRJ\obj\Debug\QRJ.dll
 C:\QRJ\QRJ\QRJ\obj\Debug\QRJ.pdb
+C:\QRJ\QRJ\QRJ\obj\Debug\QRJ.Migrations.InitialCreate.resources
+C:\QRJ\QRJ\QRJ\obj\Debug\QRJ.csproj.GenerateResource.Cache

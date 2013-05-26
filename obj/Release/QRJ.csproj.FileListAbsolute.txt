@@ -30,3 +30,5 @@ C:\QRJ\QRJ\QRJ\bin\Microsoft.AspNet.Membership.OpenAuth.xml
 C:\QRJ\QRJ\QRJ\bin\Microsoft.AspNet.FriendlyUrls.xml
 C:\QRJ\QRJ\QRJ\obj\Release\QRJ.dll
 C:\QRJ\QRJ\QRJ\obj\Release\QRJ.pdb
+C:\QRJ\QRJ\QRJ\obj\Release\QRJ.Migrations.InitialCreate.resources
+C:\QRJ\QRJ\QRJ\obj\Release\QRJ.csproj.GenerateResource.Cache

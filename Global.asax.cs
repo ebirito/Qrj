@@ -6,6 +6,9 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Security;
 using QRJ;
+using System.Data.Entity;
+using QRJ.Models;
+using QRJ.Migrations;
 
 namespace QRJ
 {
@@ -17,6 +20,7 @@ namespace QRJ
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterOpenAuth();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<QRCodeContext, Configuration>());
         }
 
         void Application_End(object sender, EventArgs e)
