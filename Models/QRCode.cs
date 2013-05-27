@@ -18,5 +18,7 @@ namespace QRJ.Models
         public DateTime? ActivatedOn { get; set; }
 
         public Guid? ActivatedBy { get; set; }
+
+        public string ProductName { get; set; }
     }
 }

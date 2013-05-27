@@ -2,34 +2,31 @@
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <hgroup class="title">
-        <h1><%: Title %>.</h1>
-        <h2>Your app description page.</h2>
+        <h2>Your QR codes.</h2>
     </hgroup>
-
-    <article>
-        <p>        
-            Use this area to provide additional information.
-        </p>
-
-        <p>        
-            Use this area to provide additional information.
-        </p>
-
-        <p>        
-            Use this area to provide additional information.
-        </p>
-    </article>
-
-    <aside>
-        <h3>Aside Title</h3>
-        <p>        
-            Use this area to provide additional information.
-        </p>
-        <ul>
-            <li><a id="A1" runat="server" href="~/">Home</a></li>
-            <li><a id="A2" runat="server" href="~/About">About</a></li>
-            <li><a id="A3" runat="server" href="~/Contact">Contact</a></li>
-        </ul>
-    </aside>
+    <a href="Activate">Activate new product</a>
+    <asp:GridView ID="QRCodes" runat="server" AutoGenerateColumns="False" 
+        DataKeyNames="Id" SelectMethod="QRCodes_GetData" 
+        AllowPaging="False" EnableViewState="True" CssClass="mGrid" AlternatingRowStyle-CssClass="alt" 
+        EmptyDataText="You currently do not have any activated products,">
+        <Columns>
+            <asp:TemplateField HeaderStyle-Width="20px" ItemStyle-HorizontalAlign="Center">
+                <ItemTemplate>
+                    <asp:CheckBox ID="ProductSelector" runat="server" OnCheckedChanged="ProductSelector_CheckedChanged" AutoPostBack="true" />
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:BoundField DataField="ProductName" HeaderText="Product Name" 
+                SortExpression="ProductName" />
+            <asp:BoundField DataField="ActivatedOn" HeaderText="Activated On" 
+                SortExpression="ActivatedOn" />
+        </Columns>
+    </asp:GridView>
+    <div>
+        Please select using the checkboxes the products that you would like to link to this video.
+    </div>
+    <div>
+        <asp:FileUpload id="FileUploadControl" runat="server" />
+        <asp:Button runat="server" id="UploadVideo" text="Upload Video" onclick="UploadVideo_Click" Enabled="false" />
+     </div>
 </asp:Content>
 
