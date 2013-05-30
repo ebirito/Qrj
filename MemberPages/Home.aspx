@@ -12,7 +12,7 @@
         <Columns>
             <asp:TemplateField HeaderStyle-Width="20px" ItemStyle-HorizontalAlign="Center">
                 <ItemTemplate>
-                    <asp:CheckBox ID="ProductSelector" runat="server" OnCheckedChanged="ProductSelector_CheckedChanged" AutoPostBack="true" />
+                    <asp:CheckBox ID="ProductSelector" runat="server" onclick="GridCheckBoxClicked();" />
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:BoundField DataField="ProductName" HeaderText="Product Name" 
@@ -25,8 +25,16 @@
         Please select using the checkboxes the products that you would like to link to this video.
     </div>
     <div>
-        <asp:FileUpload id="FileUploadControl" runat="server" />
-        <asp:Button runat="server" id="UploadVideo" text="Upload Video" onclick="UploadVideo_Click" Enabled="false" />
+        <asp:FileUpload id="FileUpload" runat="server" onchange="FileUploadChanged();" />
+        <asp:RegularExpressionValidator ID="FileUploadValidator" runat="server" ControlToValidate="FileUpload"
+         ErrorMessage="Only .mp4 format is supported" 
+         ValidationExpression=".+\.([Mm][Pp][4])" CssClass="field-validation-error" Display="Dynamic"></asp:RegularExpressionValidator>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator" runat="server" ControlToValidate="FileUpload" 
+            CssClass="field-validation-error" Display="Dynamic" ErrorMessage="Please select a file." />
+        <asp:Button runat="server" id="UploadVideo" text="Upload Video" onclick="UploadVideo_Click" UseSubmitBehavior="true" Enabled="false" />
      </div>
+    <div>
+        Maximum file size is 50 MB.
+    </div>
 </asp:Content>
 

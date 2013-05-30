@@ -464,9 +464,11 @@ fieldset {
         width: auto;
     }
 
-    input[type="button"][disabled],
-    button[disabled] {
-     background-color: red;
+    input[type="submit"]:disabled,
+    input[type="button"]:disabled,
+    button:disabled {
+     color: #999;
+     cursor:default;
     /* Add CSS here for disable button look and feel*/
     }
 
@@ -530,6 +532,12 @@ input[type="checkbox"].input-validation-error {
 
 .validation-summary-valid {
     display: none;
+}
+
+.successMessage {
+    color: #42d82b;
+    font-weight: bold;
+    font-size: 1.1em;
 }
 
 /* tables

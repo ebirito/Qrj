@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.UI.HtmlControls;
 using QRJ.Models;
 
 namespace QRJ.MemberPages
@@ -12,7 +13,18 @@ namespace QRJ.MemberPages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            HtmlGenericControl js = new HtmlGenericControl("script");
+            js.Attributes["type"] = "text/javascript";
+            js.Attributes["src"] = this.ResolveClientUrl("~/Scripts/Pages/Home.js");
+            Page.Header.Controls.Add(js);
 
+            String jsonClientIDs = "window.ClientIDs = { " +
+                       "QRCodesClientID: '" + QRCodes.ClientID + "'," +
+                       "FileUploadClientID: '" + FileUpload.ClientID + "'," +
+                       "UploadVideoClientID: '" + UploadVideo.ClientID + "'" +
+                       "}";
+
+            this.Page.ClientScript.RegisterClientScriptBlock(GetType(), "ClientIDs", jsonClientIDs, true);
         }
 
         // The return type can be changed to IEnumerable, however to support
@@ -30,25 +42,13 @@ namespace QRJ.MemberPages
 
         protected void UploadVideo_Click(object sender, EventArgs e)
         {
-        }
-
-        protected void ProductSelector_CheckedChanged(object sender, EventArgs e)
-        {
-            //Enable/disable upload video button. Enable only if at least ne row is checked
-            bool atLeastOneRowChecked = false;
-            // Iterate through the Products.Rows property
-            foreach (GridViewRow row in QRCodes.Rows)
+            // Before attempting to save the file, verify
+            // that the FileUpload control contains a file.
+            if (FileUpload.HasFile)
             {
-                // Access the CheckBox
-                CheckBox cb = (CheckBox)row.FindControl("ProductSelector");
-                if (cb.Checked)
-                {
-                    atLeastOneRowChecked = true;
-                    break;
-                }
+                // Alert the success
+                Response.Write("<script>alert('Video uploaded successfully and linked to QR code(s)');</script>");
             }
-
-            UploadVideo.Enabled = atLeastOneRowChecked;
         }
     }
 }
