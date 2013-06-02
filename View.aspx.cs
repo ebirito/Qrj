@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using QRJ.Models;
 
+
 namespace QRJ
 {
     public partial class View : Page
@@ -34,13 +35,14 @@ namespace QRJ
                 Response.Redirect("~/NotFound");
             }
             // If the code is not active then show user the activation code
-            else if (qrCode.ActivatedOn == null)
+            else if (string.IsNullOrEmpty(qrCode.FilePath))
             {
                 activationCode.InnerText = qrCode.ActivationCode;
             }
             // If the code is valid an activated then show the user the video
             else
             {
+                Response.Redirect("~/Watch?filePath=" + qrCode.FilePath);
             }
         }
     }
