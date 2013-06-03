@@ -41,5 +41,11 @@ namespace QRJ.Account
             }
             Response.Redirect(continueUrl);
         }
+
+        protected void RegisterUser_CreatingUser(object sender, LoginCancelEventArgs e)
+        {
+            // Username/email are the same
+            RegisterUser.Email = RegisterUser.UserName;
+        }
     }
 }

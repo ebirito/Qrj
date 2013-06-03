@@ -33,6 +33,7 @@
                     </li>-->
                 </ol>
                 <asp:Button runat="server" CommandName="Login" Text="Log in" />
+                <asp:HyperLink NavigateUrl="~/Account/ForgotPassword.aspx" runat="server" ID="ForgotPasswordLink">Forgot password?</asp:HyperLink>
             </fieldset>
         </LayoutTemplate>
     </asp:Login>

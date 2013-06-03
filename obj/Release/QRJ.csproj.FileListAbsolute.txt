@@ -69,3 +69,4 @@ C:\QRJ\QRJ\QRJ\bin\ru\System.Spatial.resources.dll
 C:\QRJ\QRJ\QRJ\bin\zh-Hans\System.Spatial.resources.dll
 C:\QRJ\QRJ\QRJ\bin\zh-Hant\System.Spatial.resources.dll
 C:\QRJ\QRJ\QRJ\obj\Release\QRJ.Migrations.AddProductName.resources
+C:\QRJ\QRJ\QRJ\obj\Release\QRJ.csprojResolveAssemblyReference.cache

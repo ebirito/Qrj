@@ -13,15 +13,19 @@
     <h3>Instructions:</h3>
     <ol class="round">
         <li class="one">
-            <h5>Create an account</h5>
-            Go to <a id="homePage" runat="server"></a> and register
+            <h5>Visit our web page</h5>
+            Go to <a id="homePage" runat="server"></a>
         </li>
         <li class="two">
+            <h5>Register or login</h5>
+            Click on Register to create an account, or Login if you already have one.
+        </li>
+        <li class="three">
             <h5>Activate product</h5>
             On your account page, click on “Activate new product” button. Enter the activation code:
             <h5 id="activationCode" runat="server"></h5>
         </li>
-        <li class="three">
+        <li class="four">
             <h5>Upload</h5>
             Upload your video
         </li>

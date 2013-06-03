@@ -5,7 +5,7 @@
         <h2>Please create a new account.</h2>
     </hgroup>
 
-    <asp:CreateUserWizard runat="server" ID="RegisterUser" ViewStateMode="Disabled" OnCreatedUser="RegisterUser_CreatedUser" RequireEmail="false">
+    <asp:CreateUserWizard runat="server" ID="RegisterUser" ViewStateMode="Disabled" OnCreatingUser="RegisterUser_CreatingUser" OnCreatedUser="RegisterUser_CreatedUser" RequireEmail="false">
         <LayoutTemplate>
             <asp:PlaceHolder runat="server" ID="wizardStepPlaceholder" />
             <asp:PlaceHolder runat="server" ID="navigationPlaceholder" />
