@@ -6,7 +6,7 @@
     </hgroup>
     <div>
         <asp:Label ID="lblActivationCode" runat="server" style="display:inline">Activation Code (include dashes):</asp:Label>
-        <asp:TextBox ID="ActivationCode" runat="server" style="display:inline" Width="190px" MaxLength="19" CssClass="uppercase"></asp:TextBox>
+        <asp:TextBox ID="ActivationCode" runat="server" style="display:inline" Width="210px" MaxLength="19" CssClass="uppercase"></asp:TextBox>
         <asp:RequiredFieldValidator runat="server" ControlToValidate="ActivationCode"
                                 CssClass="field-validation-error" Display="Dynamic" ErrorMessage="Code is required." />
          <asp:RegularExpressionValidator runat="server"
