@@ -13,6 +13,15 @@ namespace QRJ.MemberPages {
     public partial class Home {
         
         /// <summary>
+        /// btnActivate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnActivate;
+        
+        /// <summary>
         /// QRCodes control.
         /// </summary>
         /// <remarks>
@@ -56,5 +65,14 @@ namespace QRJ.MemberPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button UploadVideo;
+        
+        /// <summary>
+        /// successMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl successMessage;
     }
 }

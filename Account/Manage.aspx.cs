@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.Profile;
+using System.Web.UI.WebControls;
 
 using Microsoft.AspNet.Membership.OpenAuth;
 
@@ -39,14 +41,17 @@ namespace QRJ.Account
                     Form.Action = ResolveUrl("~/Account/Manage");
 
                     SuccessMessage =
-                        message == "ChangePwdSuccess" ? "Your password has been changed."
+                        message == "ChangePwdSuccess" ? "Your info has been saved."
                         : message == "SetPwdSuccess" ? "Your password has been set."
                         : message == "RemoveLoginSuccess" ? "The external login was removed."
                         : String.Empty;
                     successMessage.Visible = !String.IsNullOrEmpty(SuccessMessage);
                 }
+                // Fill the first and last name with existing values
+                ProfileBase p = (ProfileBase)ProfileBase.Create(Context.User.Identity.Name, true);
+                ((TextBox)ChangePasswordControl.ChangePasswordTemplateContainer.FindControl("FirstName")).Text = p.GetPropertyValue("FirstName").ToString();
+                ((TextBox)ChangePasswordControl.ChangePasswordTemplateContainer.FindControl("LastName")).Text = p.GetPropertyValue("LastName").ToString();
             }
-
         }
 
         protected void setPassword_Click(object sender, EventArgs e)
@@ -90,6 +95,17 @@ namespace QRJ.Account
             // offset and format. Here we're converting it to the server timezone and formatting
             // as a short date and a long time string, using the current thread culture.
             return utcDateTime.HasValue ? utcDateTime.Value.ToLocalTime().ToString("G") : "[never]";
+        }
+
+        protected void ChangePasswordControl_ChangedPassword(object sender, EventArgs e)
+        {
+            // Update first and last names
+            ProfileBase p = (ProfileBase)ProfileBase.Create(Context.User.Identity.Name, true);
+            p.SetPropertyValue("FirstName", ((TextBox)ChangePasswordControl.ChangePasswordTemplateContainer.FindControl("FirstName")).Text);
+            p.SetPropertyValue("LastName", ((TextBox)ChangePasswordControl.ChangePasswordTemplateContainer.FindControl("LastName")).Text);
+
+            // Save profile
+            p.Save();
         }
     }
 }

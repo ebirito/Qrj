@@ -4,7 +4,7 @@
     <hgroup class="title">
         <h2>Your QR codes.</h2>
     </hgroup>
-    <a href="Activate">Activate new product</a>
+    <asp:Button runat="server" id="btnActivate" text="Activate new product" OnClientClick="window.location.href='Activate'; return false;" />
     <asp:GridView ID="QRCodes" runat="server" AutoGenerateColumns="False" 
         DataKeyNames="Id" SelectMethod="QRCodes_GetData" 
         AllowPaging="False" EnableViewState="True" CssClass="mGrid" AlternatingRowStyle-CssClass="alt" 
@@ -22,7 +22,7 @@
         </Columns>
     </asp:GridView>
     <div>
-        Please select using the checkboxes the products that you would like to link to this video.
+        Please check the products that you would like to link to this video.
     </div>
     <div>
         <asp:FileUpload id="FileUpload" runat="server" onchange="FileUploadChanged();" />
@@ -36,5 +36,15 @@
     <div>
         Maximum file size is 50 MB.
     </div>
+    <div id="successMessage" runat="server">
+        <h3 id="successText" class="successText">Video was succesfully uploaded and linked to checked products</h3>
+    </div>
+    <script>
+        function pageLoad()
+        {
+            // Hide success message after 10 seconds
+            $('#successText').delay(5000).hide(5000);
+        }
+    </script>
 </asp:Content>
 

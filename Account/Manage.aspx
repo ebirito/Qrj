@@ -49,7 +49,7 @@
 
         <asp:PlaceHolder runat="server" ID="changePassword" Visible="false">
             <h3>Change password</h3>
-            <asp:ChangePassword runat="server" CancelDestinationPageUrl="~/" ViewStateMode="Disabled" RenderOuterTable="false" SuccessPageUrl="Manage?m=ChangePwdSuccess">
+            <asp:ChangePassword ID="ChangePasswordControl" runat="server" CancelDestinationPageUrl="~/" ViewStateMode="Disabled" RenderOuterTable="false" SuccessPageUrl="Manage?m=ChangePwdSuccess" OnChangedPassword="ChangePasswordControl_ChangedPassword">
                 <ChangePasswordTemplate>
                     <p class="validation-summary-errors">
                         <asp:Literal runat="server" ID="FailureText" />
@@ -89,8 +89,20 @@
                                     CssClass="field-validation-error" Display="Dynamic" ErrorMessage="The new password and confirmation password do not match."
                                     ValidationGroup="ChangePassword" />
                             </li>
+                            <li>
+                                <asp:Label ID="lblFirstName" runat="server" AssociatedControlID="FirstName">First Name</asp:Label>
+                                <asp:TextBox runat="server" ID="FirstName" />
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="FirstName"
+                                    CssClass="field-validation-error" ErrorMessage="First Name is required." ValidationGroup="ChangePassword" />
+                            </li>
+                            <li>
+                                <asp:Label ID="lblLastName" runat="server" AssociatedControlID="LastName">Last Name</asp:Label>
+                                <asp:TextBox runat="server" ID="LastName" />
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="LastName"
+                                    CssClass="field-validation-error" ErrorMessage="Last Name is required." ValidationGroup="ChangePassword" />
+                            </li>
                         </ol>
-                        <asp:Button runat="server" CommandName="ChangePassword" Text="Change password" ValidationGroup="ChangePassword" />
+                        <asp:Button runat="server" CommandName="ChangePassword" Text="Save" ValidationGroup="ChangePassword" />
                     </fieldset>
                 </ChangePasswordTemplate>
             </asp:ChangePassword>

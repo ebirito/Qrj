@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QRJ.Account
-{
-
-
-    public partial class Manage
-    {
-
+namespace QRJ.Account {
+    
+    
+    public partial class Manage {
+        
         /// <summary>
         /// successMessage control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace QRJ.Account
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.PlaceHolder successMessage;
-
+        
         /// <summary>
         /// setPassword control.
         /// </summary>
@@ -31,7 +29,7 @@ namespace QRJ.Account
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.PlaceHolder setPassword;
-
+        
         /// <summary>
         /// password control.
         /// </summary>
@@ -40,9 +38,7 @@ namespace QRJ.Account
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox password;
-
-
-
+        
         /// <summary>
         /// confirmPassword control.
         /// </summary>
@@ -51,7 +47,7 @@ namespace QRJ.Account
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox confirmPassword;
-
+        
         /// <summary>
         /// changePassword control.
         /// </summary>
@@ -60,7 +56,14 @@ namespace QRJ.Account
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.PlaceHolder changePassword;
-
-
+        
+        /// <summary>
+        /// ChangePasswordControl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ChangePassword ChangePasswordControl;
     }
 }

@@ -70,3 +70,7 @@ C:\QRJ\QRJ\QRJ\bin\ru\System.Spatial.resources.dll
 C:\QRJ\QRJ\QRJ\bin\zh-Hans\System.Spatial.resources.dll
 C:\QRJ\QRJ\QRJ\bin\zh-Hant\System.Spatial.resources.dll
 C:\QRJ\QRJ\QRJ\obj\Debug\QRJ.Migrations.AddProductName.resources
+C:\QRJ\QRJ\QRJ\bin\Google.Apis.dll
+C:\QRJ\QRJ\QRJ\bin\Google.Apis.Urlshortener.v1.dll
+C:\QRJ\QRJ\QRJ\bin\log4net.dll
+C:\QRJ\QRJ\QRJ\bin\Newtonsoft.Json.Net35.dll

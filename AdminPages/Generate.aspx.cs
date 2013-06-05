@@ -10,6 +10,10 @@ using System.Drawing;
 using System.IO;
 using System.IO.Compression;
 using QRJ.Models;
+using Google;
+using Google.Apis.Services;
+using Google.Apis.Urlshortener.v1;
+using Google.Apis.Urlshortener.v1.Data;
 
 namespace QRJ.AdminPages
 {
@@ -40,10 +44,12 @@ namespace QRJ.AdminPages
                 BarcodeWriter writer = new BarcodeWriter
                 {
                     Format = BarcodeFormat.QR_CODE
-                };
+                }; 
                 Guid qrId = Guid.NewGuid();
                 string url = string.Format(Properties.Settings.Default.ViewPath, Properties.Settings.Default.DomainName, qrId.ToString());
-                Bitmap qrCode = writer.Write(url);
+                string shortUrl = GetShortUrl(url);
+                Bitmap qrCode = writer.Write(shortUrl);
+                qrCode.SetResolution(1200, 1200);
                 qrCode.Save(Path.Combine(folderBatch, qrId.ToString()) + ".jpg");
 
                 // Save the item to the database
@@ -83,6 +89,17 @@ namespace QRJ.AdminPages
                 buffer[i] = _chars[_rng.Next(_chars.Length)];
             }
             return new string(buffer);
+        }
+
+        private string GetShortUrl(string longUrl)
+        {
+            BaseClientService.Initializer initializer = new BaseClientService.Initializer();
+            initializer.ApiKey = "AIzaSyCFRjZor7ucfj7XioiP_Hx23A3VVCYVn5M";
+            UrlshortenerService service = new UrlshortenerService(initializer);
+            Url toInsert = new Url { LongUrl = longUrl };
+            toInsert = service.Url.Insert(toInsert).Fetch();
+
+            return toInsert.Id;
         }
     }
 }

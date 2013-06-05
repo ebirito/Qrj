@@ -24,6 +24,10 @@
 }
 .mGrid .alt { background: #fcfcfc url("../Images/grd_alt.png") repeat-x top; }
 
+.successText {
+    color: green;
+}
+
 html {
     background-color: #e2e2e2;
     margin: 0;

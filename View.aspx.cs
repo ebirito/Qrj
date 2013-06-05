@@ -35,9 +35,17 @@ namespace QRJ
                 Response.Redirect("~/NotFound");
             }
             // If the code is not active then show user the activation code
-            else if (string.IsNullOrEmpty(qrCode.FilePath))
+            else if (qrCode.ActivatedOn == null)
             {
                 activationCode.InnerText = qrCode.ActivationCode;
+                InactiveHeader.Visible = InactiveBody.Visible = true;
+                ActiveHeader.Visible = ActiveBody.Visible = false;
+            }
+            // If the code is active but there is no video linked to it
+            else if (qrCode.ActivatedOn != null && string.IsNullOrEmpty(qrCode.FilePath))
+            {
+                InactiveHeader.Visible = InactiveBody.Visible = false;
+                ActiveHeader.Visible = ActiveBody.Visible = true;
             }
             // If the code is valid an activated then show the user the video
             else

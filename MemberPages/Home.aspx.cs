@@ -26,7 +26,10 @@ namespace QRJ.MemberPages
                        "QRCodesClientID: '" + QRCodes.ClientID + "'," +
                        "FileUploadClientID: '" + FileUpload.ClientID + "'," +
                        "UploadVideoClientID: '" + UploadVideo.ClientID + "'" +
-                       "}";
+                       "};";
+
+
+            successMessage.Visible = Page.IsPostBack;
 
             this.Page.ClientScript.RegisterClientScriptBlock(GetType(), "ClientIDs", jsonClientIDs, true);
         }
@@ -89,9 +92,6 @@ namespace QRJ.MemberPages
 
                 // Save the updates in the db
                 db.SaveChanges();
-
-                // Alert the success
-                Response.Write("<script>alert('Video uploaded successfully and linked to QR code(s)');</script>");
             }
         }
     }

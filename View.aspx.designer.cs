@@ -13,6 +13,33 @@ namespace QRJ {
     public partial class View {
         
         /// <summary>
+        /// InactiveHeader control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl InactiveHeader;
+        
+        /// <summary>
+        /// ActiveHeader control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ActiveHeader;
+        
+        /// <summary>
+        /// InactiveBody control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl InactiveBody;
+        
+        /// <summary>
         /// homePage control.
         /// </summary>
         /// <remarks>
@@ -29,5 +56,14 @@ namespace QRJ {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl activationCode;
+        
+        /// <summary>
+        /// ActiveBody control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ActiveBody;
     }
 }
