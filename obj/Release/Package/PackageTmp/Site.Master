@@ -4,7 +4,7 @@
 <html lang="en">
 <head runat="server">
     <meta charset="utf-8" />
-    <title><%: Page.Title %> - QR Jewelry</title>
+    <title><%: Page.Title %> - PopQode</title>
     <asp:PlaceHolder runat="server">     
           <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>  
@@ -40,7 +40,7 @@
         <div class="content-wrapper">
             <div class="float-left">
                 <p class="site-title">
-                    <a runat="server" href="~/">QR Jewelry</a>
+                    <a runat="server" href="~/">PopQode</a>
                 </p>
             </div>
             <div class="float-right">
@@ -83,7 +83,7 @@
     <footer>
         <div class="content-wrapper">
             <div class="float-left">
-                <p>&copy; <%: DateTime.Now.Year %> - QR Jewelry</p>
+                <p>&copy; <%: DateTime.Now.Year %> - PopQode</p>
             </div>
         </div>
     </footer>

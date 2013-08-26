@@ -30,49 +30,86 @@ namespace QRJ.AdminPages
         {
             // Get the user input
             int numberToGenerate = int.Parse(Number.Text);
+            string urlFormat = Format.SelectedValue;
             // Database management
             QRCodeContext db = new QRCodeContext();
             // Get the generator user Id
             Guid userId = (Guid)System.Web.Security.Membership.GetUser(User.Identity.Name).ProviderUserKey;
 
-            // Generate QR code imges
-            string folderBatch = Path.Combine(System.IO.Path.GetTempPath(), Guid.NewGuid().ToString());
-            System.IO.Directory.CreateDirectory(folderBatch);
-            for (int i = 0; i < numberToGenerate; i++)
+            if (urlFormat == "QRCode")
             {
-                // Initialize the QR witer
-                BarcodeWriter writer = new BarcodeWriter
+                // Generate QR code imges
+                string folderBatch = Path.Combine(System.IO.Path.GetTempPath(), Guid.NewGuid().ToString());
+                System.IO.Directory.CreateDirectory(folderBatch);
+                for (int i = 0; i < numberToGenerate; i++)
                 {
-                    Format = BarcodeFormat.QR_CODE
-                }; 
-                Guid qrId = Guid.NewGuid();
-                string url = string.Format(Properties.Settings.Default.ViewPath, Properties.Settings.Default.DomainName, qrId.ToString());
-                string shortUrl = GetShortUrl(url);
-                Bitmap qrCode = writer.Write(shortUrl);
-                qrCode.SetResolution(1200, 1200);
-                qrCode.Save(Path.Combine(folderBatch, qrId.ToString()) + ".jpg");
+                    Guid qrId = Guid.NewGuid();
+                    string url = string.Format(Properties.Settings.Default.ViewPath, Properties.Settings.Default.DomainName, qrId.ToString());
+                    string shortUrl = GetShortUrl(url);
+                    // Initialize the QR witer
+                    BarcodeWriter writer = new BarcodeWriter
+                    {
+                        Format = BarcodeFormat.QR_CODE
+                    };
+                    Bitmap qrCode = writer.Write(shortUrl);
+                    qrCode.SetResolution(1200, 1200);
+                    qrCode.Save(Path.Combine(folderBatch, qrId.ToString()) + ".jpg");
 
-                // Save the item to the database
-                db.QRCodes.Add(new QRCode { 
-                    Id = qrId, 
-                    ActivationCode = GenerateActivationCode(),
-                    GeneratedBy = userId,
-                    GeneratedOn = DateTime.Now
-                });
+                    // Save the item to the database
+                    db.QRCodes.Add(new QRCode
+                    {
+                        Id = qrId,
+                        ActivationCode = GenerateActivationCode(),
+                        GeneratedBy = userId,
+                        GeneratedOn = DateTime.Now
+                    });
+                }
+
+                // Save the database changes
+                db.SaveChanges();
+
+                // Zip the package
+                string zipFileName = folderBatch + ".zip";
+                ZipFile.CreateFromDirectory(folderBatch, zipFileName);
+
+                //Download file
+                Response.ContentType = "application/x-zip-compressed";
+                Response.AppendHeader("Content-Disposition", "attachment; filename=QRCodes.zip");
+                Response.TransmitFile(zipFileName);
+                Response.End();
             }
+            else
+            {
+                // Generate QR code imges
+                string path = Path.Combine(System.IO.Path.GetTempPath(), Guid.NewGuid().ToString() + ".txt");
+                using (StreamWriter sw = File.CreateText(path))
+                {
+                    for (int i = 0; i < numberToGenerate; i++)
+                    {
+                        Guid qrId = Guid.NewGuid();
+                        string url = string.Format(Properties.Settings.Default.ViewPath, Properties.Settings.Default.DomainName, qrId.ToString());
+                        string shortUrl = GetShortUrl(url);
+                        sw.WriteLine(shortUrl);
+                        // Save the item to the database
+                        db.QRCodes.Add(new QRCode
+                        {
+                            Id = qrId,
+                            ActivationCode = GenerateActivationCode(),
+                            GeneratedBy = userId,
+                            GeneratedOn = DateTime.Now
+                        });
+                    }
+                }
 
-            // Save the database changes
-            db.SaveChanges();
+                // Save the database changes
+                db.SaveChanges();
 
-            // Zip the package
-            string zipFileName = folderBatch + ".zip";
-            ZipFile.CreateFromDirectory(folderBatch, zipFileName);
-
-            //Download file
-            Response.ContentType = "application/x-zip-compressed";
-            Response.AppendHeader("Content-Disposition", "attachment; filename=QRCodes.zip");
-            Response.TransmitFile(zipFileName);
-            Response.End();
+                //Download file
+                Response.ContentType = "text/plain";
+                Response.AppendHeader("Content-Disposition", "attachment; filename=URLs.txt");
+                Response.TransmitFile(path);
+                Response.End();
+            }
         }
 
         private string GenerateActivationCode()
