@@ -74,3 +74,4 @@ C:\QRJ\QRJ\QRJ\bin\Google.Apis.dll
 C:\QRJ\QRJ\QRJ\bin\Google.Apis.Urlshortener.v1.dll
 C:\QRJ\QRJ\QRJ\bin\log4net.dll
 C:\QRJ\QRJ\QRJ\bin\Newtonsoft.Json.Net35.dll
+C:\QRJ\QRJ\QRJ\bin\EPPlus.dll

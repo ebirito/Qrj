@@ -14,6 +14,7 @@ using Google;
 using Google.Apis.Services;
 using Google.Apis.Urlshortener.v1;
 using Google.Apis.Urlshortener.v1.Data;
+using OfficeOpenXml;
 
 namespace QRJ.AdminPages
 {
@@ -80,16 +81,17 @@ namespace QRJ.AdminPages
             }
             else
             {
-                // Generate QR code imges
-                string path = Path.Combine(System.IO.Path.GetTempPath(), Guid.NewGuid().ToString() + ".txt");
-                using (StreamWriter sw = File.CreateText(path))
+                using (ExcelPackage pck = new ExcelPackage())
                 {
-                    for (int i = 0; i < numberToGenerate; i++)
+                    //Create the worksheet
+                    ExcelWorksheet ws = pck.Workbook.Worksheets.Add("Demo");
+
+                    for (int i = 1; i <= numberToGenerate; i++)
                     {
                         Guid qrId = Guid.NewGuid();
                         string url = string.Format(Properties.Settings.Default.ViewPath, Properties.Settings.Default.DomainName, qrId.ToString());
                         string shortUrl = GetShortUrl(url);
-                        sw.WriteLine(shortUrl);
+                        ws.Cells[i, 1].Value = shortUrl;
                         // Save the item to the database
                         db.QRCodes.Add(new QRCode
                         {
@@ -99,16 +101,16 @@ namespace QRJ.AdminPages
                             GeneratedOn = DateTime.Now
                         });
                     }
+
+                    // Save the database changes
+                    db.SaveChanges();
+
+                    //Download file
+                    Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                    Response.AddHeader("content-disposition", "attachment;  filename=URLs.xlsx");
+                    Response.BinaryWrite(pck.GetAsByteArray());
+                    Response.End();
                 }
-
-                // Save the database changes
-                db.SaveChanges();
-
-                //Download file
-                Response.ContentType = "text/plain";
-                Response.AppendHeader("Content-Disposition", "attachment; filename=URLs.txt");
-                Response.TransmitFile(path);
-                Response.End();
             }
         }
 
