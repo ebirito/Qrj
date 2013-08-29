@@ -84,7 +84,7 @@ namespace QRJ.AdminPages
                 using (ExcelPackage pck = new ExcelPackage())
                 {
                     //Create the worksheet
-                    ExcelWorksheet ws = pck.Workbook.Worksheets.Add("Demo");
+                    ExcelWorksheet ws = pck.Workbook.Worksheets.Add("URLs");
 
                     for (int i = 1; i <= numberToGenerate; i++)
                     {
