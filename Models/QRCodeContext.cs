@@ -9,5 +9,16 @@ namespace QRJ.Models
         {
         }
         public DbSet<QRCode> QRCodes { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<CategoryContent> CategoryContents { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<CategoryContent>()
+            .HasRequired(t => t.Category)
+            .WithMany(t => t.Contents)
+            .HasForeignKey(d => d.CategoryId)
+            .WillCascadeOnDelete(true);
+        }
     }
 }

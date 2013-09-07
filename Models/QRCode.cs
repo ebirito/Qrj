@@ -20,5 +20,7 @@ namespace QRJ.Models
         public Guid? ActivatedBy { get; set; }
 
         public string ProductName { get; set; }
+
+        public UrlType UrlType { get; set; }
     }
 }

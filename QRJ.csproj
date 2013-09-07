@@ -177,6 +177,9 @@
     <Content Include="Account\OpenAuthProviders.ascx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
+    <Content Include="AdminPages\Category.aspx" />
+    <Content Include="AdminPages\CategoryContent.aspx" />
+    <Content Include="AdminPages\ManageContent.aspx" />
     <Content Include="AdminPages\Generate.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\Site.css" />
@@ -311,6 +314,27 @@
     <Compile Include="Account\ForgotPassword.aspx.designer.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AdminPages\Category.aspx.cs">
+      <DependentUpon>Category.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPages\Category.aspx.designer.cs">
+      <DependentUpon>Category.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPages\CategoryContent.aspx.cs">
+      <DependentUpon>CategoryContent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPages\CategoryContent.aspx.designer.cs">
+      <DependentUpon>CategoryContent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPages\ManageContent.aspx.cs">
+      <DependentUpon>ManageContent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPages\ManageContent.aspx.designer.cs">
+      <DependentUpon>ManageContent.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdminPages\Generate.aspx.cs">
       <DependentUpon>Generate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -388,6 +412,17 @@
     <Compile Include="Migrations\201305272019071_AddProductName.Designer.cs">
       <DependentUpon>201305272019071_AddProductName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201309022310126_AddUrlType.cs" />
+    <Compile Include="Migrations\201309022310126_AddUrlType.Designer.cs">
+      <DependentUpon>201309022310126_AddUrlType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201309040725140_AddCategory.cs" />
+    <Compile Include="Migrations\201309040725140_AddCategory.Designer.cs">
+      <DependentUpon>201309040725140_AddCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CategoryContent.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Enumerations.cs" />
     <Compile Include="NotFound.aspx.cs">
       <DependentUpon>NotFound.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -484,6 +519,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201305272019071_AddProductName.resx">
       <DependentUpon>201305272019071_AddProductName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201309022310126_AddUrlType.resx">
+      <DependentUpon>201309022310126_AddUrlType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201309040725140_AddCategory.resx">
+      <DependentUpon>201309040725140_AddCategory.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

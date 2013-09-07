@@ -13,6 +13,7 @@ namespace QRJ
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //new QRCodeDatabaseInitializer().InitializeDatabase(new QRCodeContext());
             // Redirect to Member r Admin home pages
             if (Request.IsAuthenticated)
             {

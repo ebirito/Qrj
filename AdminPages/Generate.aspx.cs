@@ -62,7 +62,8 @@ namespace QRJ.AdminPages
                         Id = qrId,
                         ActivationCode = GenerateActivationCode(),
                         GeneratedBy = userId,
-                        GeneratedOn = DateTime.Now
+                        GeneratedOn = DateTime.Now,
+                        UrlType = UrlType.QrCode
                     });
                 }
 
@@ -98,7 +99,8 @@ namespace QRJ.AdminPages
                             Id = qrId,
                             ActivationCode = GenerateActivationCode(),
                             GeneratedBy = userId,
-                            GeneratedOn = DateTime.Now
+                            GeneratedOn = DateTime.Now,
+                            UrlType = UrlType.Text
                         });
                     }
 

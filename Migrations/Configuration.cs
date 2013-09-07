@@ -9,7 +9,7 @@ namespace QRJ.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(QRJ.Models.QRCodeContext context)

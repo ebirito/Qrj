@@ -10,61 +10,61 @@
 namespace QRJ.AdminPages {
     
     
-    public partial class Generate {
+    public partial class Category {
         
         /// <summary>
-        /// lblNumber control.
+        /// lblName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNumber;
+        protected global::System.Web.UI.WebControls.Label lblName;
         
         /// <summary>
-        /// Number control.
+        /// Name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Number;
+        protected global::System.Web.UI.WebControls.TextBox Name;
         
         /// <summary>
-        /// RequiredFieldValidator1 control.
+        /// lblFrequency control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.Label lblFrequency;
         
         /// <summary>
-        /// RangeValidator1 control.
+        /// Frequency control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator RangeValidator1;
+        protected global::System.Web.UI.WebControls.DropDownList Frequency;
         
         /// <summary>
-        /// lblFormat control.
+        /// errorsDiv control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFormat;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl errorsDiv;
         
         /// <summary>
-        /// Format control.
+        /// ErrorMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Format;
+        protected global::System.Web.UI.WebControls.Literal ErrorMessage;
         
         /// <summary>
         /// btnSubmit control.
@@ -76,12 +76,39 @@ namespace QRJ.AdminPages {
         protected global::System.Web.UI.WebControls.Button btnSubmit;
         
         /// <summary>
-        /// btnManageContent control.
+        /// btnCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnManageContent;
+        protected global::System.Web.UI.WebControls.Button btnCancel;
+        
+        /// <summary>
+        /// categoryContentsDiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl categoryContentsDiv;
+        
+        /// <summary>
+        /// CategoryContents control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView CategoryContents;
+        
+        /// <summary>
+        /// btnContent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnContent;
     }
 }
