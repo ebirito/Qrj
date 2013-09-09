@@ -32,7 +32,7 @@
             <Columns>
                 <asp:BoundField DataField="Name" HeaderText="Name" 
                     SortExpression="Name" />
-                <asp:HyperLinkField DataNavigateUrlFields="Name" DataNavigateUrlFormatString="LeadInformation.aspx?LeadID={0}" Text="Preview" />
+                <asp:HyperLinkField DataNavigateUrlFields="FilePath" DataNavigateUrlFormatString="~/Watch?filePath={0}" Text="Preview" Target="_blank" />
                 <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
             </Columns>
         </asp:GridView>

@@ -38,6 +38,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\packages\AjaxControlToolkit.7.0725\lib\45\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="AjaxMin">
+      <HintPath>..\packages\AjaxMin.4.97.4951.28483\lib\net40\AjaxMin.dll</HintPath>
+    </Reference>
     <Reference Include="EPPlus, Version=3.1.3.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Dependencies\EPPlus.dll</HintPath>
@@ -48,6 +54,9 @@
     </Reference>
     <Reference Include="Google.Apis.Urlshortener.v1">
       <HintPath>Dependencies\Google.Apis.Urlshortener.v1.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.6\lib\Net45\HtmlAgilityPack.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -106,9 +115,6 @@
     </Reference>
     <Reference Include="AspNet.ScriptManager.jQuery.UI.Combined">
       <HintPath>..\packages\AspNet.ScriptManager.jQuery.UI.Combined.1.8.24\lib\net45\AspNet.ScriptManager.jQuery.UI.Combined.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.ScriptManager.MSAjax, Version=4.5.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
-      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.MSAjax.4.5.6\lib\net45\Microsoft.ScriptManager.MSAjax.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ScriptManager.WebForms, Version=4.5.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <HintPath>..\packages\Microsoft.AspNet.ScriptManager.WebForms.4.5.6\lib\net45\Microsoft.ScriptManager.WebForms.dll</HintPath>
@@ -237,6 +243,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="ContentNotFound.aspx" />
     <Content Include="Dependencies\EPPlus.dll" />
     <Content Include="Dependencies\Google.Apis.dll" />
     <Content Include="Dependencies\Google.Apis.Urlshortener.v1.dll" />
@@ -394,6 +401,13 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ContentNotFound.aspx.cs">
+      <DependentUpon>ContentNotFound.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContentNotFound.aspx.designer.cs">
+      <DependentUpon>ContentNotFound.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FileSizeError.aspx.cs">
       <DependentUpon>FileSizeError.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -419,6 +433,10 @@
     <Compile Include="Migrations\201309040725140_AddCategory.cs" />
     <Compile Include="Migrations\201309040725140_AddCategory.Designer.cs">
       <DependentUpon>201309040725140_AddCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201309082023275_AddFilePath.cs" />
+    <Compile Include="Migrations\201309082023275_AddFilePath.Designer.cs">
+      <DependentUpon>201309082023275_AddFilePath.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\CategoryContent.cs" />
     <Compile Include="Models\Category.cs" />
@@ -525,6 +543,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201309040725140_AddCategory.resx">
       <DependentUpon>201309040725140_AddCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201309082023275_AddFilePath.resx">
+      <DependentUpon>201309082023275_AddFilePath.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

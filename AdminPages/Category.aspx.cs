@@ -5,6 +5,10 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using QRJ.Models;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Auth;
+using Microsoft.WindowsAzure.Storage.Blob;
+using System.Configuration;
 
 namespace QRJ.AdminPages
 {
@@ -63,7 +67,7 @@ namespace QRJ.AdminPages
                     category.Frequency = (Frequency)Enum.Parse(typeof(Frequency), Frequency.SelectedValue);
                 }
                 db.SaveChanges();
-                Response.Redirect("ManageContent.aspx");
+                Response.Redirect("ManageContent");
             }
         }
 
@@ -81,7 +85,8 @@ namespace QRJ.AdminPages
                                 select new
                                 {
                                     Id = c.Id,
-                                    Name = c.Name
+                                    Name = c.Name,
+                                    FilePath = c.FilePath
                                 };
 
             totalRowCount = categoryContents.Count();
@@ -92,7 +97,29 @@ namespace QRJ.AdminPages
         public void CategoryContents_DeleteItem(Guid id)
         {
             QRCodeContext db = new QRCodeContext();
-            db.CategoryContents.Remove(db.CategoryContents.Where(c => c.Id == id).First());
+            QRJ.Models.CategoryContent categoryContent = db.CategoryContents.Where(c => c.Id == id).First();
+            // Remove the blob from storage
+            // Gdt the storage connection string
+            CloudStorageAccount storageAccount =
+                CloudStorageAccount.Parse(ConfigurationManager.AppSettings["StorageConnectionString"]);
+            // Create the blob client.
+            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+            // Retrieve a reference to a container. 
+            CloudBlobContainer container = blobClient.GetContainerReference("videos");
+            // Set permission to public
+            container.SetPermissions(
+            new BlobContainerPermissions
+            {
+                PublicAccess =
+                    BlobContainerPublicAccessType.Blob
+            });
+            try
+            {
+                CloudBlockBlob deleteBlob = container.GetBlockBlobReference(categoryContent.FilePath);
+                deleteBlob.DeleteIfExists();
+            }
+            catch { }
+            db.CategoryContents.Remove(categoryContent);
             db.SaveChanges();
         }
 

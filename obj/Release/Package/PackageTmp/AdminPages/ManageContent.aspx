@@ -7,8 +7,8 @@
     <div>
         <asp:GridView ID="Categories" runat="server" AutoGenerateColumns="False" 
             DataKeyNames="Id" SelectMethod="Categories_GetData" DeleteMethod="Categories_DeleteItem"
-            AllowPaging="True" PageSize="5" EnableViewState="True" CssClass="mGrid" AlternatingRowStyle-CssClass="alt" 
-            EmptyDataText="No categories configured">
+            AllowPaging="True" PageSize="25" EnableViewState="True" CssClass="mGrid" AlternatingRowStyle-CssClass="alt" 
+            EmptyDataText="No categories configured" OnRowEditing="Categories_RowEditing">
             <Columns>
                 <asp:BoundField DataField="Name" HeaderText="Name" 
                     SortExpression="Name" />

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Generate" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Generate.aspx.cs" Inherits="QRJ.AdminPages.Generate" %>
+﻿<%@ Page Title="Administrator" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Generate.aspx.cs" Inherits="QRJ.AdminPages.Generate" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <hgroup class="title">

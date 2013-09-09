@@ -5,6 +5,10 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using QRJ.Models;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Auth;
+using Microsoft.WindowsAzure.Storage.Blob;
+using System.Configuration;
 
 namespace QRJ.AdminPages
 {
@@ -39,7 +43,35 @@ namespace QRJ.AdminPages
         public void Categories_DeleteItem(Guid id)
         {
             QRCodeContext db = new QRCodeContext();
-            db.Categories.Remove(db.Categories.Where(c => c.Id == id).First());
+            QRJ.Models.Category category = db.Categories.Where(c => c.Id == id).First();
+
+            // Remove the blob from storage
+            // Gdt the storage connection string
+            CloudStorageAccount storageAccount =
+                CloudStorageAccount.Parse(ConfigurationManager.AppSettings["StorageConnectionString"]);
+            // Create the blob client.
+            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+            // Retrieve a reference to a container. 
+            CloudBlobContainer container = blobClient.GetContainerReference("videos");
+            // Set permission to public
+            container.SetPermissions(
+            new BlobContainerPermissions
+            {
+                PublicAccess =
+                    BlobContainerPublicAccessType.Blob
+            });
+
+            foreach(QRJ.Models.CategoryContent categoryContent in category.Contents)
+            {
+                try
+                {
+                    CloudBlockBlob deleteBlob = container.GetBlockBlobReference(categoryContent.FilePath);
+                    deleteBlob.DeleteIfExists();
+                }
+                catch { }
+            }
+
+            db.Categories.Remove(category);
             db.SaveChanges();
         }
 

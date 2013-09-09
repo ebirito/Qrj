@@ -16,6 +16,8 @@ namespace QRJ
         protected void Page_Load(object sender, EventArgs e)
         {
             string filePath = Request.QueryString["filePath"];
+            if (string.IsNullOrEmpty(filePath))
+                Response.Redirect("ContentNotFound");
 
             // Retrieve storage account from connection string.
             CloudStorageAccount storageAccount =

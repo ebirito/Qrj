@@ -21,4 +21,21 @@
         <asp:Literal runat="server" ID="ErrorMessage" />
     </div>
     <asp:Button ID="btnSubmit" Text="Save" runat="server" OnClick="btnSubmit_Click" />
+    <asp:Button ID="btnCancel" Text="Cancel" runat="server" OnClientClick="window.location.href='ManageContent'; return false;" />
+    <div id="categoryContentsDiv" runat="server">
+        <hr />
+        <h3>Videos.</h3>
+        <asp:GridView ID="CategoryContents" runat="server" AutoGenerateColumns="False" 
+            DataKeyNames="Id" SelectMethod="CategoryContents_GetData" DeleteMethod="CategoryContents_DeleteItem"
+            AllowPaging="True" PageSize="25" EnableViewState="True" CssClass="mGrid" AlternatingRowStyle-CssClass="alt" 
+            EmptyDataText="No videos configured" OnRowEditing="CategoryContents_RowEditing">
+            <Columns>
+                <asp:BoundField DataField="Name" HeaderText="Name" 
+                    SortExpression="Name" />
+                <asp:HyperLinkField DataNavigateUrlFields="FilePath" DataNavigateUrlFormatString="~/Watch?filePath={0}" Text="Preview" Target="_blank" />
+                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+            </Columns>
+        </asp:GridView>
+        <asp:Button runat="server" id="btnContent" text="Add New" />
+    </div>
 </asp:Content>
