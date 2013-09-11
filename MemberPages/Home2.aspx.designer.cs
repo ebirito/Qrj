@@ -7,63 +7,72 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QRJ.Account {
+namespace QRJ.MemberPages {
     
     
-    public partial class Login {
+    public partial class Home2 {
         
         /// <summary>
-        /// LoginForm control.
+        /// btnActivate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Login LoginForm;
+        protected global::System.Web.UI.WebControls.Button btnActivate;
         
         /// <summary>
-        /// lnkRegister control.
+        /// QRCodes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lnkRegister;
+        protected global::System.Web.UI.WebControls.GridView QRCodes;
         
         /// <summary>
-        /// RegisterHyperLink control.
+        /// FileUpload control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink RegisterHyperLink;
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload;
         
         /// <summary>
-        /// OpenAuthLogin control.
+        /// FileUploadValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::QRJ.Account.OpenAuthProviders OpenAuthLogin;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator FileUploadValidator;
         
         /// <summary>
-        /// divRegister control.
+        /// RequiredFieldValidator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divRegister;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator;
         
         /// <summary>
-        /// btnRegister control.
+        /// UploadVideo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRegister;
+        protected global::System.Web.UI.WebControls.Button UploadVideo;
+        
+        /// <summary>
+        /// successMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl successMessage;
     }
 }

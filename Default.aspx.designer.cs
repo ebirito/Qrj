@@ -7,11 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QRJ
-{
-
-
-    public partial class _Default
-    {
+namespace QRJ {
+    
+    
+    public partial class _Default {
     }
 }

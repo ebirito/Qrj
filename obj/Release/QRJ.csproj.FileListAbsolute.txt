@@ -98,3 +98,4 @@ C:\QRJ\QRJ\QRJ\bin\tr-TR\AjaxControlToolkit.resources.dll
 C:\QRJ\QRJ\QRJ\bin\zh-CHS\AjaxControlToolkit.resources.dll
 C:\QRJ\QRJ\QRJ\bin\zh-CHT\AjaxControlToolkit.resources.dll
 C:\QRJ\QRJ\QRJ\obj\Release\QRJ.Migrations.AddFilePath.resources
+C:\QRJ\QRJ\QRJ\obj\Release\QRJ.Migrations.AddSubscribedCategories.resources

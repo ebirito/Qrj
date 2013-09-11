@@ -18,6 +18,7 @@ namespace QRJ.Account
                 if (adminLogin)
                 {
                     lnkRegister.Visible = false;
+                    divRegister.Visible = false;
                 }
             }
 

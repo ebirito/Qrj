@@ -13,5 +13,7 @@ namespace QRJ.Models
         public Frequency Frequency { get; set; }
 
         public virtual List<CategoryContent> Contents { get; set; }
+
+        public virtual List<QRCode> ProductsSubscribed { get; set; }
     }
 }

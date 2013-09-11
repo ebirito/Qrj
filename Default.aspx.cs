@@ -18,10 +18,12 @@ namespace QRJ
             if (Request.IsAuthenticated)
             {
                 if (Context.User.IsInRole("Administrator"))
-                    Response.Redirect("~/AdminPages/Generate.aspx");
+                    Response.Redirect("~/AdminPages/Generate");
                 else
-                    Response.Redirect("~/MemberPages/Home.aspx");
+                    Response.Redirect("~/MemberPages/Home");
             }
+            else
+                Response.Redirect("~/Account/Login.aspx");
         }
     }
 }

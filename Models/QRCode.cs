@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace QRJ.Models
 {
@@ -22,5 +23,7 @@ namespace QRJ.Models
         public string ProductName { get; set; }
 
         public UrlType UrlType { get; set; }
+
+        public virtual List<Category> SuscribedCategories { get; set; }
     }
 }

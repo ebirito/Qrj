@@ -251,8 +251,10 @@
     <Content Include="Dependencies\Newtonsoft.Json.Net35.dll" />
     <Content Include="FileSizeError.aspx" />
     <Content Include="MemberPages\Activate.aspx" />
+    <Content Include="MemberPages\Product.aspx" />
+    <Content Include="MemberPages\Home.aspx" />
     <Content Include="NotFound.aspx" />
-    <Content Include="Scripts\Pages\Home.js" />
+    <Content Include="Scripts\Pages\Home2.js" />
     <Content Include="View.aspx" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
@@ -267,7 +269,7 @@
     <Content Include="Images\orderedList7.png" />
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
-    <Content Include="MemberPages\Home.aspx" />
+    <Content Include="MemberPages\Home2.aspx" />
     <Content Include="packages.config" />
     <Content Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -422,6 +424,20 @@
     <Compile Include="MemberPages\Activate.aspx.designer.cs">
       <DependentUpon>Activate.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MemberPages\Product.aspx.cs">
+      <DependentUpon>Product.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MemberPages\Product.aspx.designer.cs">
+      <DependentUpon>Product.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MemberPages\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MemberPages\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201305272019071_AddProductName.cs" />
     <Compile Include="Migrations\201305272019071_AddProductName.Designer.cs">
       <DependentUpon>201305272019071_AddProductName.cs</DependentUpon>
@@ -437,6 +453,10 @@
     <Compile Include="Migrations\201309082023275_AddFilePath.cs" />
     <Compile Include="Migrations\201309082023275_AddFilePath.Designer.cs">
       <DependentUpon>201309082023275_AddFilePath.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201309100143012_AddSubscribedCategories.cs" />
+    <Compile Include="Migrations\201309100143012_AddSubscribedCategories.Designer.cs">
+      <DependentUpon>201309100143012_AddSubscribedCategories.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\CategoryContent.cs" />
     <Compile Include="Models\Category.cs" />
@@ -473,12 +493,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="MemberPages\Home.aspx.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
+    <Compile Include="MemberPages\Home2.aspx.cs">
+      <DependentUpon>Home2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="MemberPages\Home.aspx.designer.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
+    <Compile Include="MemberPages\Home2.aspx.designer.cs">
+      <DependentUpon>Home2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -546,6 +566,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201309082023275_AddFilePath.resx">
       <DependentUpon>201309082023275_AddFilePath.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201309100143012_AddSubscribedCategories.resx">
+      <DependentUpon>201309100143012_AddSubscribedCategories.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

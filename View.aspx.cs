@@ -34,23 +34,16 @@ namespace QRJ
             {
                 Response.Redirect("~/NotFound");
             }
-            // If the code is not active then show user the activation code
-            else if (qrCode.ActivatedOn == null)
+            // If the code is not active or categories are not configured then the user must register/login
+            else if (qrCode.ActivatedBy == null || qrCode.SuscribedCategories.Count == 0)
             {
-                activationCode.InnerText = qrCode.ActivationCode;
-                InactiveHeader.Visible = InactiveBody.Visible = true;
-                ActiveHeader.Visible = ActiveBody.Visible = false;
+                Session["qrCodeId"] = qrCode.Id;
+                Response.Redirect("~/Account/Login");
             }
-            // If the code is active but there is no video linked to it
-            else if (qrCode.ActivatedOn != null && string.IsNullOrEmpty(qrCode.FilePath))
-            {
-                InactiveHeader.Visible = InactiveBody.Visible = false;
-                ActiveHeader.Visible = ActiveBody.Visible = true;
-            }
-            // If the code is valid an activated then show the user the video
+            // If the code is valid and activated and has categories then determine which video to show
             else
             {
-                Response.Redirect("~/Watch?filePath=" + qrCode.FilePath);
+                //Response.Redirect("~/Watch?filePath=" + qrCode.FilePath);
             }
         }
     }
