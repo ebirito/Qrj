@@ -51,23 +51,26 @@ namespace QRJ.AdminPages
             {
                 if (_categoryId == Guid.Empty)
                 {
+                    _categoryId = Guid.NewGuid();
                     // Create the new category
                     // Save the item to the database
                     db.Categories.Add(new QRJ.Models.Category
                     {
-                        Id = Guid.NewGuid(),
+                        Id = _categoryId,
                         Name = name,
                         Frequency = (Frequency)Enum.Parse(typeof(Frequency), Frequency.SelectedValue)
                     });
+                    db.SaveChanges();
+                    Response.Redirect("Category?id=" + _categoryId);
                 }
                 else
                 {
                     QRJ.Models.Category category = db.Categories.Where(c => c.Id == _categoryId).FirstOrDefault();
                     category.Name = Name.Text;
                     category.Frequency = (Frequency)Enum.Parse(typeof(Frequency), Frequency.SelectedValue);
+                    db.SaveChanges();
+                    Response.Redirect("ManageContent");
                 }
-                db.SaveChanges();
-                Response.Redirect("ManageContent");
             }
         }
 

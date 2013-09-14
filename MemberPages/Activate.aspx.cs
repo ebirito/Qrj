@@ -52,7 +52,7 @@ namespace QRJ.AdminPages
                 {
                     // Activate the product
                     qrCode.ActivatedBy = userId;
-                    qrCode.ActivatedOn = DateTime.Now;
+                    qrCode.ActivatedOn = DateTime.Now.ToUniversalTime();
                     qrCode.ProductName = ProductName.Text;
                     db.SaveChanges();
                     Response.Redirect("~/MemberPages/Home.aspx");

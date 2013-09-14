@@ -458,8 +458,17 @@
     <Compile Include="Migrations\201309100143012_AddSubscribedCategories.Designer.cs">
       <DependentUpon>201309100143012_AddSubscribedCategories.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201309141556140_QRCodeViewedCategoryContent.cs" />
+    <Compile Include="Migrations\201309141556140_QRCodeViewedCategoryContent.Designer.cs">
+      <DependentUpon>201309141556140_QRCodeViewedCategoryContent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201309141756462_QRCodeViewedCategoryContentAddExpiresOn.cs" />
+    <Compile Include="Migrations\201309141756462_QRCodeViewedCategoryContentAddExpiresOn.Designer.cs">
+      <DependentUpon>201309141756462_QRCodeViewedCategoryContentAddExpiresOn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\CategoryContent.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\QRCodeViewedCategoryContent.cs" />
     <Compile Include="Models\Enumerations.cs" />
     <Compile Include="NotFound.aspx.cs">
       <DependentUpon>NotFound.aspx</DependentUpon>
@@ -569,6 +578,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201309100143012_AddSubscribedCategories.resx">
       <DependentUpon>201309100143012_AddSubscribedCategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201309141556140_QRCodeViewedCategoryContent.resx">
+      <DependentUpon>201309141556140_QRCodeViewedCategoryContent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201309141756462_QRCodeViewedCategoryContentAddExpiresOn.resx">
+      <DependentUpon>201309141756462_QRCodeViewedCategoryContentAddExpiresOn.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

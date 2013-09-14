@@ -99,3 +99,5 @@ C:\QRJ\QRJ\QRJ\obj\Debug\QRJ.csproj.GenerateResource.Cache
 C:\QRJ\QRJ\QRJ\obj\Debug\QRJ.dll
 C:\QRJ\QRJ\QRJ\obj\Debug\QRJ.pdb
 C:\QRJ\QRJ\QRJ\obj\Debug\QRJ.Migrations.AddSubscribedCategories.resources
+C:\QRJ\QRJ\QRJ\obj\Debug\QRJ.Migrations.QRCodeViewedCategoryContent.resources
+C:\QRJ\QRJ\QRJ\obj\Debug\QRJ.Migrations.QRCodeViewedCategoryContentAddExpiresOn.resources

@@ -36,7 +36,7 @@ namespace QRJ.MemberPages
                            {
                                Id = p.Id,
                                ProductName = p.ProductName,
-                               ActivatedOn = p.ActivatedOn,
+                               ActivatedOn = p.ActivatedOn.Value.ToLocalTime(),
                                Subscriptions = string.Join(",", p.SuscribedCategories.Select(s => s.Name).ToArray())
                            });
 

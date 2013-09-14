@@ -25,5 +25,7 @@ namespace QRJ.Models
         public UrlType UrlType { get; set; }
 
         public virtual List<Category> SuscribedCategories { get; set; }
+
+        public virtual List<QRCodeViewedCategoryContent> ViewedCategoryContents { get; set; }
     }
 }

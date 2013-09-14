@@ -47,7 +47,7 @@ namespace QRJ.AdminPages
                 if (product.ActivatedBy == null)
                 {
                     product.ActivatedBy = userId;
-                    product.ActivatedOn = DateTime.Now;
+                    product.ActivatedOn = DateTime.Now.ToUniversalTime();
                 }
                 foreach (GridViewRow row in Subscriptions.Rows)
                 {
