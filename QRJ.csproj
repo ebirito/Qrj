@@ -254,6 +254,8 @@
     <Content Include="MemberPages\Product.aspx" />
     <Content Include="MemberPages\Home.aspx" />
     <Content Include="NotFound.aspx" />
+    <Content Include="PublicPages\Horoscope\Test.aspx" />
+    <Content Include="PublicPages\Horoscope\View.aspx" />
     <Content Include="Scripts\Pages\Home2.js" />
     <Content Include="View.aspx" />
     <Content Include="Images\accent.png" />
@@ -485,6 +487,20 @@
     <Compile Include="Models\QRCode.cs" />
     <Compile Include="Models\QRCodeContext.cs" />
     <Compile Include="Models\QRCodeDatabaseInitializer.cs" />
+    <Compile Include="PublicPages\Horoscope\Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PublicPages\Horoscope\Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PublicPages\Horoscope\View.aspx.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PublicPages\Horoscope\View.aspx.designer.cs">
+      <DependentUpon>View.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View.aspx.cs">
       <DependentUpon>View.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
