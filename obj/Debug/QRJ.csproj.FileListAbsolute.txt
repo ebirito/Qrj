@@ -101,3 +101,4 @@ C:\QRJ\QRJ\QRJ\obj\Debug\QRJ.pdb
 C:\QRJ\QRJ\QRJ\obj\Debug\QRJ.Migrations.AddSubscribedCategories.resources
 C:\QRJ\QRJ\QRJ\obj\Debug\QRJ.Migrations.QRCodeViewedCategoryContent.resources
 C:\QRJ\QRJ\QRJ\obj\Debug\QRJ.Migrations.QRCodeViewedCategoryContentAddExpiresOn.resources
+C:\QRJ\QRJ\QRJ\obj\Debug\QRJ.Migrations.AddHoroscope.resources

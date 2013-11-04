@@ -39,6 +39,8 @@ namespace QRJ.AdminPages
 
             if (urlFormat == "QRCode")
             {
+                string shortUrls = "";
+                string longUrls = "";
                 // Generate QR code imges
                 string folderBatch = Path.Combine(System.IO.Path.GetTempPath(), Guid.NewGuid().ToString());
                 System.IO.Directory.CreateDirectory(folderBatch);
@@ -46,7 +48,10 @@ namespace QRJ.AdminPages
                 {
                     Guid qrId = Guid.NewGuid();
                     string url = string.Format(Properties.Settings.Default.ViewPath, Properties.Settings.Default.DomainName, qrId.ToString());
-                    string shortUrl = GetShortUrl(url);
+                    string shortUrl = GetShortUrl(url).Replace("http://", "");
+
+                    shortUrls += shortUrl + " ";
+                    longUrls += url + " ";
                     // Initialize the QR witer
                     BarcodeWriter writer = new BarcodeWriter
                     {

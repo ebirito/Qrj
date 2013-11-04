@@ -468,8 +468,13 @@
     <Compile Include="Migrations\201309141756462_QRCodeViewedCategoryContentAddExpiresOn.Designer.cs">
       <DependentUpon>201309141756462_QRCodeViewedCategoryContentAddExpiresOn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201311040359558_AddHoroscope.cs" />
+    <Compile Include="Migrations\201311040359558_AddHoroscope.Designer.cs">
+      <DependentUpon>201311040359558_AddHoroscope.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\CategoryContent.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Horoscope.cs" />
     <Compile Include="Models\QRCodeViewedCategoryContent.cs" />
     <Compile Include="Models\Enumerations.cs" />
     <Compile Include="NotFound.aspx.cs">
@@ -600,6 +605,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201309141756462_QRCodeViewedCategoryContentAddExpiresOn.resx">
       <DependentUpon>201309141756462_QRCodeViewedCategoryContentAddExpiresOn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201311040359558_AddHoroscope.resx">
+      <DependentUpon>201311040359558_AddHoroscope.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
