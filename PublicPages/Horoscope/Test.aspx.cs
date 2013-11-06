@@ -40,6 +40,7 @@ namespace QRJ.PublicPages.Horoscope
                 db.SaveChanges();
             }
 
+            imgBackground.Src = "../../Content/themes/base/images/horoscopeBackgrounds/" + sign.ToString() + ".jpg";
             txtSign.InnerText = sign.ToString();
             txtHoroscope.InnerText = horoscope.GetHoroscope(sign);
         }
