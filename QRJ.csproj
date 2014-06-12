@@ -189,6 +189,14 @@
     <Content Include="AdminPages\Generate.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\themes\base\images\demo\adult1.png" />
+    <Content Include="Content\themes\base\images\demo\adult2.png" />
+    <Content Include="Content\themes\base\images\demo\adult3.png" />
+    <Content Include="Content\themes\base\images\demo\adult4.png" />
+    <Content Include="Content\themes\base\images\demo\teen1.png" />
+    <Content Include="Content\themes\base\images\demo\teen2.png" />
+    <Content Include="Content\themes\base\images\demo\teen3.png" />
+    <Content Include="Content\themes\base\images\demo\teen4.png" />
     <Content Include="Content\themes\base\images\horoscopeBackgrounds\Aquarius.jpg" />
     <Content Include="Content\themes\base\images\horoscopeBackgrounds\Aries.jpg" />
     <Content Include="Content\themes\base\images\horoscopeBackgrounds\Cancer.jpg" />
@@ -215,6 +223,7 @@
     <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
     <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
     <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.mobile-1.4.2.min.css" />
     <Content Include="Content\themes\base\jquery.ui.accordion.css" />
     <Content Include="Content\themes\base\jquery.ui.all.css" />
     <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
@@ -266,8 +275,11 @@
     <Content Include="MemberPages\Product.aspx" />
     <Content Include="MemberPages\Home.aspx" />
     <Content Include="NotFound.aspx" />
+    <Content Include="PublicPages\Horoscope\Select.aspx" />
     <Content Include="PublicPages\Horoscope\Test.aspx" />
     <Content Include="PublicPages\Horoscope\View.aspx" />
+    <Content Include="Scripts\jquery.fullbg.min.js" />
+    <Content Include="Scripts\jquery.mobile-1.4.2.min.js" />
     <Content Include="Scripts\Pages\Home2.js" />
     <Content Include="View.aspx" />
     <Content Include="Images\accent.png" />
@@ -504,6 +516,13 @@
     <Compile Include="Models\QRCode.cs" />
     <Compile Include="Models\QRCodeContext.cs" />
     <Compile Include="Models\QRCodeDatabaseInitializer.cs" />
+    <Compile Include="PublicPages\Horoscope\Select.aspx.cs">
+      <DependentUpon>Select.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PublicPages\Horoscope\Select.aspx.designer.cs">
+      <DependentUpon>Select.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PublicPages\Horoscope\Test.aspx.cs">
       <DependentUpon>Test.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

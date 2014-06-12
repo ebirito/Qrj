@@ -14,7 +14,7 @@
 	        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
         }
         .text {
-            text-align: center;
+            text-align: justify;
             color: #fff;
             text-shadow: 0px -1px 4px white, 0px -2px 10px yellow, 0px -10px 20px #ff8000, 0px -18px 40px red;
             font: 50px 'BlackJackRegular';

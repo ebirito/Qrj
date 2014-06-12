@@ -37,4 +37,10 @@ namespace QRJ.Models
         Aquarius = 10,
         Pisces = 11
     }
+
+    public enum HoroscopeStyle
+    {
+        Adult = 0,
+        Teen = 1
+    }
 }

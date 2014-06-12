@@ -10,42 +10,42 @@
 namespace QRJ.PublicPages.Horoscope {
     
     
-    public partial class View {
+    public partial class Select {
         
         /// <summary>
-        /// divUnderConstruction control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divUnderConstruction;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// signText control.
+        /// chkRemember control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl signText;
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox chkRemember;
         
         /// <summary>
-        /// divBackgroundImage control.
+        /// btnAdult control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divBackgroundImage;
+        protected global::System.Web.UI.WebControls.Button btnAdult;
         
         /// <summary>
-        /// imgBackground control.
+        /// btnTeen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage imgBackground;
+        protected global::System.Web.UI.WebControls.Button btnTeen;
     }
 }
