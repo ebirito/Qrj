@@ -19,7 +19,13 @@
         <div style="display:none">
             <asp:Button id="btnAdult" runat="server" onclick="btnAdult_Click" />
             <asp:Button id="btnTeen" runat="server" onclick="btnTeen_Click" />
+            <asp:TextBox ID="txtTimezone" runat="server" />
         </div>
     </form>
+    <script type="text/javascript">
+        $(window).load(function () {
+            $('#txtTimezone').val(new Date().getTimezoneOffset() / 60);
+        });
+    </script>
 </body>
 </html>

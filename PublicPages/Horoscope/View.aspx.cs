@@ -29,7 +29,12 @@ namespace QRJ.PublicPages.Horoscope
                         Response.Redirect("Select");
                     }
 
-                    imgBackground.Src = "../../Content/themes/base/images/demo/" + style.ToString() + "1.png";
+                    // Get the timezone from the cookie
+                    DateTime clientDateTime = DateTime.UtcNow.AddMinutes(-int.Parse(Request.Cookies["TimeZone"].Value.ToString()) * 60);
+                    // For now, we only have 4 images per category
+                    int imageIndex = (clientDateTime.Day % 4) + 1;
+
+                    imgBackground.Src = "../../Content/themes/base/images/demo/" + style.ToString() +  imageIndex + ".png";
                 }
 
                 signText.InnerText = sign.ToString();

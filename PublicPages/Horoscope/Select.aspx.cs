@@ -29,11 +29,15 @@ namespace QRJ.PublicPages.Horoscope
         {
             if (chkRemember.Checked)
             {
-                HttpCookie cookie = new HttpCookie("HoroscopeStyle");
-                cookie.Value = style.ToString();
-                cookie.Expires = DateTime.Now.AddYears(50);
-                Response.Cookies.Add(cookie);
+                HttpCookie styleCookie = new HttpCookie("HoroscopeStyle");
+                styleCookie.Value = style.ToString();
+                styleCookie.Expires = DateTime.Now.AddYears(50);
+                Response.Cookies.Add(styleCookie);
             }
+            HttpCookie timezoneCookie = new HttpCookie("TimeZone");
+            timezoneCookie.Value = txtTimezone.Text;
+            timezoneCookie.Expires = DateTime.Now.AddYears(50);
+            Response.Cookies.Add(timezoneCookie);
             Response.Redirect("View?id=" + Session["SignId"].ToString() + "&horoscopeStyle=" + style.ToString());
         }
     }
