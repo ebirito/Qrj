@@ -20,6 +20,7 @@
             </asp:DropDownList>
         </div>
         <asp:Button ID="btnSubmit" Text="Generate" runat="server" OnClick="btnSubmit_Click" />
+        <asp:Button ID="btnHoroscopeSet" Text="Generate Horoscope Set" runat="server" OnClick="btnHoroscopeSet_Click" />
     </div>
     <hr />
     <div>

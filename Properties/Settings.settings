@@ -6,7 +6,7 @@
       <Value Profile="(Default)">qrj.azurewebsites.net</Value>
     </Setting>
     <Setting Name="ViewPath" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">{0}/View.aspx?id={1}</Value>
+      <Value Profile="(Default)">{0}/PublicPages/Horoscope/View.aspx?id={1}</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -189,14 +189,22 @@
     <Content Include="AdminPages\Generate.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\Site.css" />
-    <Content Include="Content\themes\base\images\demo\adult1.png" />
-    <Content Include="Content\themes\base\images\demo\adult2.png" />
-    <Content Include="Content\themes\base\images\demo\adult3.png" />
-    <Content Include="Content\themes\base\images\demo\adult4.png" />
-    <Content Include="Content\themes\base\images\demo\teen1.png" />
-    <Content Include="Content\themes\base\images\demo\teen2.png" />
-    <Content Include="Content\themes\base\images\demo\teen3.png" />
-    <Content Include="Content\themes\base\images\demo\teen4.png" />
+    <Content Include="Content\themes\base\images\demo\AdultButton.jpg" />
+    <Content Include="Content\themes\base\images\demo\MOCK ADULT DAY 1.jpg" />
+    <Content Include="Content\themes\base\images\demo\MOCK ADULT DAY 2.jpg" />
+    <Content Include="Content\themes\base\images\demo\MOCK ADULT DAY 3.jpg" />
+    <Content Include="Content\themes\base\images\demo\MOCK ADULT DAY 4.jpg" />
+    <Content Include="Content\themes\base\images\demo\MOCK TEEN DAY 1.jpg" />
+    <Content Include="Content\themes\base\images\demo\MOCK TEEN DAY 2.jpg" />
+    <Content Include="Content\themes\base\images\demo\MOCK TEEN DAY 3.jpg" />
+    <Content Include="Content\themes\base\images\demo\MOCK TEEN DAY 4.jpg" />
+    <Content Include="Content\themes\base\images\demo\Remember Selection Check Box.jpg" />
+    <Content Include="Content\themes\base\images\demo\SelectionBackground.jpg" />
+    <Content Include="Content\themes\base\images\demo\SelectionBackgroundBottom.jpg" />
+    <Content Include="Content\themes\base\images\demo\SelectionBackgroundLeft.jpg" />
+    <Content Include="Content\themes\base\images\demo\SelectionBackgroundRight.jpg" />
+    <Content Include="Content\themes\base\images\demo\SelectionBackgroundTop.jpg" />
+    <Content Include="Content\themes\base\images\demo\TeenButton.jpg" />
     <Content Include="Content\themes\base\images\horoscopeBackgrounds\Aquarius.jpg" />
     <Content Include="Content\themes\base\images\horoscopeBackgrounds\Aries.jpg" />
     <Content Include="Content\themes\base\images\horoscopeBackgrounds\Cancer.jpg" />
@@ -278,6 +286,7 @@
     <Content Include="PublicPages\Horoscope\Select.aspx" />
     <Content Include="PublicPages\Horoscope\Test.aspx" />
     <Content Include="PublicPages\Horoscope\View.aspx" />
+    <Content Include="PublicPages\Horoscope\ViewBak.aspx" />
     <Content Include="Scripts\jquery.fullbg.min.js" />
     <Content Include="Scripts\jquery.mobile-1.4.2.min.js" />
     <Content Include="Scripts\Pages\Home2.js" />
@@ -496,11 +505,18 @@
     <Compile Include="Migrations\201311040359558_AddHoroscope.Designer.cs">
       <DependentUpon>201311040359558_AddHoroscope.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201408250335583_AddHoroscopeSignSetQrCode.cs" />
+    <Compile Include="Migrations\201408250335583_AddHoroscopeSignSetQrCode.Designer.cs">
+      <DependentUpon>201408250335583_AddHoroscopeSignSetQrCode.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\CategoryContent.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\HoroscopeQrCode.cs" />
+    <Compile Include="Models\HoroscopeSet.cs" />
     <Compile Include="Models\Horoscope.cs" />
     <Compile Include="Models\QRCodeViewedCategoryContent.cs" />
     <Compile Include="Models\Enumerations.cs" />
+    <Compile Include="Models\HoroscopeSign.cs" />
     <Compile Include="NotFound.aspx.cs">
       <DependentUpon>NotFound.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -536,6 +552,13 @@
     </Compile>
     <Compile Include="PublicPages\Horoscope\View.aspx.designer.cs">
       <DependentUpon>View.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PublicPages\Horoscope\ViewBak.aspx.cs">
+      <DependentUpon>ViewBak.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PublicPages\Horoscope\ViewBak.aspx.designer.cs">
+      <DependentUpon>ViewBak.aspx</DependentUpon>
     </Compile>
     <Compile Include="View.aspx.cs">
       <DependentUpon>View.aspx</DependentUpon>
@@ -639,6 +662,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201311040359558_AddHoroscope.resx">
       <DependentUpon>201311040359558_AddHoroscope.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201408250335583_AddHoroscopeSignSetQrCode.resx">
+      <DependentUpon>201408250335583_AddHoroscopeSignSetQrCode.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

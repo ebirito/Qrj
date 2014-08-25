@@ -12,6 +12,9 @@ namespace QRJ.Models
         public DbSet<Category> Categories { get; set; }
         public DbSet<CategoryContent> CategoryContents { get; set; }
         public DbSet<Horoscope> Horoscopes { get; set; }
+        public DbSet<HoroscopeSign> HoroscopeSigns { get; set; }
+        public DbSet<HoroscopeSet> HoroscopeSets { get; set; }
+        public DbSet<HoroscopeQrCode> HoroscopeQrCodes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

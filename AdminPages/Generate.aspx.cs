@@ -27,6 +27,61 @@ namespace QRJ.AdminPages
         {
         }
 
+        protected void btnHoroscopeSet_Click(object sender, EventArgs e)
+        {
+            // Database management
+            QRCodeContext db = new QRCodeContext();
+            // Save a new set
+            HoroscopeSet newSet = new HoroscopeSet();
+            newSet.Id = Guid.NewGuid();
+            newSet.GeneratedOn = DateTime.Now;
+            HoroscopeSet lastSet = db.HoroscopeSets.OrderByDescending(s => s.SetNumber).FirstOrDefault();
+            newSet.SetNumber = lastSet == null ? 1 : lastSet.SetNumber + 1;
+            db.HoroscopeSets.Add(newSet);
+
+            // Generate QR code imges
+            string folderBatch = Path.Combine(System.IO.Path.GetTempPath(), Guid.NewGuid().ToString());
+            System.IO.Directory.CreateDirectory(folderBatch);
+            foreach(HoroscopeSign sign in db.HoroscopeSigns)
+            {
+                Guid qrId = Guid.NewGuid();
+                string url = string.Format(Properties.Settings.Default.ViewPath, Properties.Settings.Default.DomainName, qrId.ToString());
+                string shortUrl = GetShortUrl(url).Replace("http://", "");
+
+                // Initialize the QR witer
+                BarcodeWriter writer = new BarcodeWriter
+                {
+                    Format = BarcodeFormat.QR_CODE
+                };
+                Bitmap qrCode = writer.Write(shortUrl);
+                qrCode.SetResolution(1200, 1200);
+                qrCode.Save(Path.Combine(folderBatch, qrId.ToString()) + ".jpg");
+
+                // Save the item to the database
+                db.HoroscopeQrCodes.Add(new HoroscopeQrCode
+                {
+                    Id = qrId,
+                    HoroscopeSignId = sign.Id,
+                    HoroscopeSetId = newSet.Id,
+                    LongURL = url,
+                    ShortURL = shortUrl
+                });
+            }
+
+            // Save the database changes
+            db.SaveChanges();
+
+            // Zip the package
+            string zipFileName = folderBatch + ".zip";
+            ZipFile.CreateFromDirectory(folderBatch, zipFileName);
+
+            //Download file
+            Response.ContentType = "application/x-zip-compressed";
+            Response.AppendHeader("Content-Disposition", "attachment; filename=QRCodes.zip");
+            Response.TransmitFile(zipFileName);
+            Response.End();
+        }
+
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             // Get the user input
