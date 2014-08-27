@@ -11,38 +11,66 @@ namespace QRJ.PublicPages.Horoscope
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Guid horoscopeQrCodeId = new Guid(Request.QueryString["id"]);
-            QRJ.Models.Sign sign = GetSign(horoscopeQrCodeId);
+            // Insure that the __doPostBack() JavaScript method is created...
+            ClientScript.GetPostBackEventReference(this, string.Empty);
 
-            // Get easter date/time
-            TimeZoneInfo easternZone = TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time");
-            DateTime today = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, easternZone).Date;
-
-            // Check if there is a horoscope for this date
-            QRCodeContext db = new QRCodeContext();
-            QRJ.Models.Horoscope horoscope = db.Horoscopes.Where(h => h.Date == today).FirstOrDefault();
-            // If we have the horoscope then just display it
-            if (horoscope == null)
+            if (this.IsPostBack)
             {
-                // Otherwise get it from the service
-                WebRequest request = WebRequest.Create("http://horoscopeservices.co.uk/daily_delivery/xmlaccess.asp?uid=608364284&date=" + today.ToString("yyyy-MM-dd"));
-                WebResponse response = request.GetResponse();
-                // Get the stream containing content returned by the server.
-                Stream dataStream = response.GetResponseStream();
-                // Open the stream using a StreamReader for easy access.
-                StreamReader reader = new StreamReader(dataStream);
-                // Read the content.
-                string responseFromServer = reader.ReadToEnd();
+                string eventTarget = (this.Request["__EVENTTARGET"] == null) ? string.Empty : this.Request["__EVENTTARGET"];
+                string eventArgument = (this.Request["__EVENTARGUMENT"] == null) ? string.Empty : this.Request["__EVENTARGUMENT"];
 
-                // Save the horoscope in the db
-                horoscope = new Models.Horoscope { Id = Guid.NewGuid(), Date = today, Data = responseFromServer };
-                db.Horoscopes.Add(horoscope);
-                db.SaveChanges();
+                // Get eastern date/time
+                TimeZoneInfo easternZone = TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time");
+                DateTime clientDateTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, easternZone).Date;
+
+                if (eventTarget == "TimezoneOffsetPostBack")
+                {
+                    string timezoneOffset = eventArgument;
+                    // get client date time
+                    clientDateTime = DateTime.UtcNow.AddMinutes(-int.Parse(timezoneOffset) * 60);
+                }
+
+                Guid horoscopeQrCodeId = new Guid(Request.QueryString["id"]);
+                QRJ.Models.Sign sign = GetSign(horoscopeQrCodeId);
+
+                // Check if there is a horoscope for this date
+                QRCodeContext db = new QRCodeContext();
+                QRJ.Models.Horoscope horoscope = db.Horoscopes.Where(h => h.Date == clientDateTime).FirstOrDefault();
+                // If we have the horoscope then just display it
+                if (horoscope == null)
+                {
+                    // Otherwise get it from the service
+                    WebRequest request = WebRequest.Create("http://horoscopeservices.co.uk/daily_delivery/xmlaccess.asp?uid=608364284&date=" + clientDateTime.ToString("yyyy-MM-dd"));
+                    WebResponse response = request.GetResponse();
+                    // Get the stream containing content returned by the server.
+                    Stream dataStream = response.GetResponseStream();
+                    // Open the stream using a StreamReader for easy access.
+                    StreamReader reader = new StreamReader(dataStream);
+                    // Read the content.
+                    string responseFromServer = reader.ReadToEnd();
+
+                    // Save the horoscope in the db
+                    horoscope = new Models.Horoscope { Id = Guid.NewGuid(), Date = clientDateTime, Data = responseFromServer };
+                    db.Horoscopes.Add(horoscope);
+                    db.SaveChanges();
+                }
+
+                // Choose between the 12 background images
+                int imageIndex = (clientDateTime.Day % 12) + 1;
+
+                imgBackground.Src = "../../Content/themes/base/images/horoscopeBackgrounds/" + sign.ToString() + "/" + imageIndex + ".png";
+                txtHoroscope.InnerHtml = string.Format("{0}:<br /><br />{1}", clientDateTime.ToString("D"), horoscope.GetHoroscope(sign));
             }
+            else
+            {
+                System.Text.StringBuilder javaScript = new System.Text.StringBuilder();
 
-            imgBackground.Src = "../../Content/themes/base/images/horoscopeBackgrounds/" + sign.ToString() + ".jpg";
-            txtSign.InnerText = sign.ToString();
-            txtHoroscope.InnerText = horoscope.GetHoroscope(sign);
+                javaScript.Append("var currentDate = new Date();");
+                javaScript.Append("var timezoneOffset = currentDate.getTimezoneOffset() / 60;");
+                javaScript.Append("__doPostBack('TimezoneOffsetPostBack', timezoneOffset);");;
+
+                System.Web.UI.ScriptManager.RegisterStartupScript(this, GetType(), "TimezoneOffsetScript", javaScript.ToString(), true);
+            }
         }
 
         private QRJ.Models.Sign GetSign(Guid horoscopeQrCodeId)

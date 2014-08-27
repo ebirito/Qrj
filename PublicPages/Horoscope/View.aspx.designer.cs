@@ -22,6 +22,15 @@ namespace QRJ.PublicPages.Horoscope {
         protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
         
         /// <summary>
+        /// divContainer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divContainer;
+        
+        /// <summary>
         /// imgBackground control.
         /// </summary>
         /// <remarks>
@@ -29,24 +38,6 @@ namespace QRJ.PublicPages.Horoscope {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlImage imgBackground;
-        
-        /// <summary>
-        /// divSign control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divSign;
-        
-        /// <summary>
-        /// txtSign control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtSign;
         
         /// <summary>
         /// txtHoroscope control.
