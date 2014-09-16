@@ -35,7 +35,8 @@ namespace QRJ.PublicPages.Horoscope
 
                 // Check if there is a horoscope for this date
                 QRCodeContext db = new QRCodeContext();
-                QRJ.Models.Horoscope horoscope = db.Horoscopes.Where(h => h.Date == clientDateTime).FirstOrDefault();
+                QRJ.Models.Horoscope horoscope = db.Horoscopes.Where(h => h.Date.Year == clientDateTime.Year && 
+                    h.Date.Month == clientDateTime.Month && h.Date.Day == clientDateTime.Day).FirstOrDefault();
                 // If we have the horoscope then just display it
                 if (horoscope == null)
                 {
