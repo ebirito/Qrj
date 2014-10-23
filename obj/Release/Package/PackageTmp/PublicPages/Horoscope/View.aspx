@@ -18,10 +18,17 @@
             color: #fff;
             z-index:100;
             position:absolute;    
-            font-size:50px;
+            font-size:40px;
             top:450px;
             width:70%;
             left:15%
+        }
+        .link {
+            z-index:100;
+            position:absolute;    
+            font-size:60px;
+            top:1300px;
+            left:22%
         }
         #divContainer
         {
@@ -35,6 +42,7 @@
         <div id="divContainer" runat="server">
             <img id="imgBackground" runat="server" alt="" />
             <div id="txtHoroscope" class="text" runat="server" />
+            <a class="link" href="http://www.astrobandz.com">www.astrobandz.com</a>
         </div>
         <script type="text/javascript">
             $(window).load(function () {
