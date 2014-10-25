@@ -42,7 +42,7 @@
         <div id="divContainer" runat="server">
             <img id="imgBackground" runat="server" alt="" />
             <div id="txtHoroscope" class="text" runat="server" />
-            <a class="link" href="http://www.astrobandz.com">www.astrobandz.com</a>
+            <a id="lnkAstrobanz" runat="server" class="link" href="http://www.astrobandz.com">www.astrobandz.com</a>
         </div>
         <script type="text/javascript">
             $(window).load(function () {

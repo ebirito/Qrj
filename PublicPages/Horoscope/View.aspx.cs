@@ -61,6 +61,8 @@ namespace QRJ.PublicPages.Horoscope
 
                 imgBackground.Src = "../../Content/themes/base/images/horoscopeBackgrounds/" + sign.ToString() + "/" + imageIndex + ".png";
                 txtHoroscope.InnerHtml = string.Format("{0}:<br /><br />{1}", clientDateTime.ToString("D"), horoscope.GetHoroscope(sign));
+                // Show the astrobanz link only for Set 1
+                lnkAstrobanz.Visible = GetSet(horoscopeQrCodeId) == 1;
             }
             else
             {
@@ -79,6 +81,13 @@ namespace QRJ.PublicPages.Horoscope
             QRCodeContext db = new QRCodeContext();
             HoroscopeQrCode horoscopeQrCode = db.HoroscopeQrCodes.Where(h => h.Id == horoscopeQrCodeId).FirstOrDefault();
             return db.HoroscopeSigns.Where(s => s.Id == horoscopeQrCode.HoroscopeSignId).FirstOrDefault().Sign;
+        }
+
+        private int GetSet(Guid horoscopeQrCodeId)
+        {
+            QRCodeContext db = new QRCodeContext();
+            HoroscopeQrCode horoscopeQrCode = db.HoroscopeQrCodes.Where(h => h.Id == horoscopeQrCodeId).FirstOrDefault();
+            return db.HoroscopeSets.Where(s => s.Id == horoscopeQrCode.HoroscopeSetId).FirstOrDefault().SetNumber;
         }
     }
 }
