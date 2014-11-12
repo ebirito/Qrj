@@ -4,6 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
+    <meta name="viewport" content="user-scalable=no" />
     <script src="../../Scripts/jquery-1.8.2.min.js"></script>
     <script src="../../Scripts/jquery.fullbg.min.js"></script>
     <style type="text/css">
