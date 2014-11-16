@@ -57,8 +57,7 @@ namespace QRJ.PublicPages.Horoscope
                 }
 
                 // Choose between the 12 background images
-                //int imageIndex = (clientDateTime.Day % 12) + 1;
-                int imageIndex = 1;
+                int imageIndex = (clientDateTime.Day % 12) + 1;
 
                 imgBackground.Src = "../../Content/themes/base/images/horoscopeBackgrounds/" + sign.ToString() + "/" + imageIndex + ".png";
                 txtHoroscope.InnerHtml = string.Format("{0}:<br /><br />{1}", clientDateTime.ToString("D"), horoscope.GetHoroscope(sign));
