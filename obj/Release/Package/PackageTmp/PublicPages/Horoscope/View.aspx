@@ -4,15 +4,18 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <meta name="viewport" content="user-scalable=no" />
     <script src="../../Scripts/jquery-1.8.2.min.js"></script>
     <script src="../../Scripts/jquery.fullbg.min.js"></script>
     <style type="text/css">
-        .fullBg {
+        /*.fullBg {
 	        position: fixed;
 	        top: 0;
 	        left: 0;
 	        overflow: hidden;
+        }*/
+        .fullBg{
+            background-size: cover;
+
         }
         .text {
             text-align: justify;
@@ -29,7 +32,13 @@
             position:absolute;    
             font-size:60px;
             top:1300px;
-            left:22%
+            left:22%;
+            color:black;
+            text-shadow:
+            -1px -1px 0 #FFF,
+            1px -1px 0 #FFF,
+            -1px 1px 0 #FFF,
+            1px 1px 0 #FFF;
         }
         #divContainer
         {
@@ -41,14 +50,14 @@
     <form runat="server">
         <asp:ScriptManager runat="server"></asp:ScriptManager>
         <div id="divContainer" runat="server">
-            <img id="imgBackground" runat="server" alt="" />
+            <img id="imgBackground" class="fullBg" runat="server" alt="" />
             <div id="txtHoroscope" class="text" runat="server" />
             <a id="lnkAstrobanz" runat="server" class="link" href="http://www.astrobandz.com">www.astrobandz.com</a>
         </div>
         <script type="text/javascript">
-            $(window).load(function () {
+            /*$(window).load(function () {
                 $("#imgBackground").fullBg();
-            });
+            });*/
         </script>
     </form>
 </body>
