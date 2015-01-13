@@ -7,12 +7,6 @@
     <script src="../../Scripts/jquery-1.8.2.min.js"></script>
     <script src="../../Scripts/jquery.fullbg.min.js"></script>
     <style type="text/css">
-        /*.fullBg {
-	        position: fixed;
-	        top: 0;
-	        left: 0;
-	        overflow: hidden;
-        }*/
         .fullBg{
             background-size: cover;
 
@@ -31,7 +25,7 @@
             z-index:100;
             position:absolute;    
             font-size:60px;
-            top:1300px;
+            bottom:10px;
             left:22%;
             color:black;
             text-shadow:
@@ -54,11 +48,6 @@
             <div id="txtHoroscope" class="text" runat="server" />
             <a id="lnkAstrobanz" runat="server" class="link" href="http://www.astrobandz.com">www.astrobandz.com</a>
         </div>
-        <script type="text/javascript">
-            /*$(window).load(function () {
-                $("#imgBackground").fullBg();
-            });*/
-        </script>
     </form>
 </body>
 </html>
